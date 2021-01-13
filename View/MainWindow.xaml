@@ -1,0 +1,52 @@
+﻿<Window x:Class="DHCP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DHCP"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Kliens üzenete" Command="{Binding OpenReq}" />
+                <MenuItem Header="Foglalás hozzáadása" Command="{Binding OpenReserv}" />
+                <MenuItem Header="Foglalások törlése" Command="{Binding DeleteReservations}" />
+                <MenuItem Header="Beállítások" Command="{Binding OpenSettings}" />
+            </MenuItem>
+        </Menu>
+
+        <DockPanel>
+            
+        
+        <ListView ItemsSource="{Binding leasesList}" Margin="0,41,0,0">
+            <!--<ListView.View>
+                <GridView>
+                    <GridViewColumn Header="IP"/>
+                    <GridViewColumn Header="MAC"/>
+                    <GridViewColumn Header="Time"/>
+                </GridView>
+            </ListView.View> -->
+            <ListView.View>
+                <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding ip_address}" Header="IP Address" />
+                    <GridViewColumn DisplayMemberBinding="{Binding MAC_address}" Header="MAC Address" />
+                    <GridViewColumn DisplayMemberBinding="{Binding timeout}" Header="Timeout" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView ItemsSource="{Binding reservationList}" Margin="0,41,0,0">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn DisplayMemberBinding="{Binding ip_address}" Header="IP Address" />
+                    <GridViewColumn DisplayMemberBinding="{Binding MAC_address}" Header="MAC Address" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        </DockPanel>
+    </Grid>
+</Window>

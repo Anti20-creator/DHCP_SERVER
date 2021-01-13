@@ -1,0 +1,20 @@
+﻿<Window x:Class="DHCP.ReqIP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DHCP"
+        mc:Ignorable="d"
+        Title="Request IP Address" Height="300" Width="500">
+    <Grid>
+        <StackPanel>
+            <ComboBox Text="Pick an event" SelectionChanged="ColorComboBox_SelectionChanged">
+                <TextBox>REQUEST</TextBox>
+                <TextBox>RELEASE</TextBox>
+            </ComboBox>
+            <TextBlock Text="Enter your MAC address" />
+            <TextBox x:Name="MAC" />
+            <Button Content="OK" Click="OKButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
